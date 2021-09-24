@@ -1,8 +1,24 @@
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
 import { getPostsData, getAllPostIds } from '../../lib/posts'
 import Layout from '../../components/layout'
 
-export default function Bloks({ allPostsData }) {
+export default function Bloks({ allPostsData, ...props }) {
+  const [count, setCount] = useState(0);
+
+  const handleAdd = (type) => {
+    if ('add' === type) {
+      setCount(count + 1);
+    }
+    else if ('reduce' === type) {
+      setCount(count - 1);
+    }
+  }
+
+  useEffect(() => {
+    setCount(count + 2)
+  }, [])
+
   return (<Layout>
     <Head>
       <title>{allPostsData.title}</title>
@@ -14,6 +30,10 @@ export default function Bloks({ allPostsData }) {
     {allPostsData.date}
     <br />
     <div dangerouslySetInnerHTML={{ __html: allPostsData.contentHtml }} />
+    <div>
+      计数：{count}
+    </div>
+    <button onClick={handleAdd.bind(this, 'add')}>加一</button><button onClick={handleAdd.bind(this, 'reduce')}>减一</button>
   </Layout>)
 }
 

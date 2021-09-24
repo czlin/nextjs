@@ -11,5 +11,5 @@ export default function FirstPost() {
       <h1>xxx</h1>
       <a>Back to home</a>
     </Layout>
-  ) 
+  )
 }

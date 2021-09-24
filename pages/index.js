@@ -26,10 +26,10 @@ export default function Home() {
             </a>
           </Link>
 
-        <Link href="/bloks/index">
+        <Link href="/bloks">
           <a className="card">
             <h3>博客 &rarr;</h3>
-            <p>静态预渲染，获取数据</p>
+            <p>静态预渲染，获取数据11</p>
           </a>
         </Link>
 
